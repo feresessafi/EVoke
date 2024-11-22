@@ -1,2 +1,2 @@
-# burda.ai
-Hackatum 2024 - Hubert Burda Media
+# Hackatum 2024 - Hubert Burda Media
+
