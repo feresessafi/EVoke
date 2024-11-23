@@ -133,8 +133,8 @@ def save_articles_as_json(articles, output_file):
         json.dump(articles, f, indent=4, ensure_ascii=False)  # Ensure UTF-8 encoding in the output
 
 # Example usage:
-#rss_url = 'https://www.autobild.de/rss/22590661.xml'  # Replace with your RSS feed URL
-rss_url = 'https://rss.app/feeds/MLuDKqkwFtd2tuMr.xml'
+rss_url = 'https://www.autobild.de/rss/22590661.xml'  # Replace with your RSS feed URL
+#rss_url = 'https://rss.app/feeds/MLuDKqkwFtd2tuMr.xml'
 output_file = 'cleaned_articles.json'
 
 # Step 1: Fetch article links from RSS

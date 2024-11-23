@@ -4,15 +4,27 @@ from openai import AzureOpenAI
 from typing import List, Dict
 import time
 from rich.console import Console
+from dotenv import load_dotenv
+
+load_dotenv()
 
 console = Console()
 
 class ArticleClassifier:
     def __init__(self):
+        api_key = os.getenv("AZURE_OPENAI_API_KEY")
+        endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+
+        if not api_key or not endpoint:
+            raise ValueError(
+                "Missing Azure OpenAI credentials. Please ensure AZURE_OPENAI_API_KEY and "
+                "AZURE_OPENAI_ENDPOINT are set in your .env file"
+            )
+            
         self.client = AzureOpenAI(
-            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            api_key=api_key,
             api_version="2024-08-01-preview",
-            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
+            azure_endpoint=endpoint
         )
 
     def classify_article(self, article: Dict) -> Dict:
