@@ -31,12 +31,12 @@
         >
           Generation
         </h3>
-        <Button variant="ghost" class="w-full justify-start">
-          <Rss class="mr-2 h-4 w-4" />
+        <Button variant="ghost" class="w-full justify-start" @click="(e) => showComingSoon('News Feed', e)">
+          <Newspaper class="mr-2 h-4 w-4" />
           News Feed
         </Button>
-        <Button variant="ghost" class="w-full justify-start">
-          <Wand2 class="mr-2 h-4 w-4" />
+        <Button variant="ghost" class="w-full justify-start" @click="(e) => showComingSoon('Article Generation', e)">
+          <PlusCircle class="mr-2 h-4 w-4" />
           Generate Article
         </Button>
       </div>
@@ -55,7 +55,7 @@
           <Button variant="ghost" class="w-full justify-start relative">
             <CheckSquare class="mr-2 h-4 w-4" />
             Review Queue
-            <Badge variant="warning" class="ml-auto">{{ reviewCount }}</Badge>
+            <Badge variant="secondary" class="ml-auto">{{ reviewCount }}</Badge>
           </Button>
         </NuxtLink>
         <NuxtLink to="/published">
@@ -71,11 +71,11 @@
 
       <!-- Settings & Help -->
       <div class="space-y-1">
-        <Button variant="ghost" class="w-full justify-start">
+        <Button variant="ghost" class="w-full justify-start" @click="(e) => showComingSoon('Settings', e)">
           <Settings class="mr-2 h-4 w-4" />
           Settings
         </Button>
-        <Button variant="ghost" class="w-full justify-start">
+        <Button variant="ghost" class="w-full justify-start" @click="(e) => showComingSoon('Help Center', e)">
           <HelpCircle class="mr-2 h-4 w-4" />
           Help
         </Button>
@@ -84,7 +84,7 @@
   </aside>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -96,8 +96,11 @@ import {
   Archive,
   Settings,
   HelpCircle,
+  Newspaper,
+  PlusCircle,
 } from "lucide-vue-next";
 import AppLogo from "./AppLogo.vue";
+import { useToast } from '@/components/ui/toast/use-toast';
 
 // These would come from your store in real app
 
@@ -105,4 +108,22 @@ const store = useStore();
 const { reviewNeededArticles } = storeToRefs(store);
 //const draftCount = 3;
 const reviewCount = reviewNeededArticles.value.length;
+
+const { toast } = useToast();
+
+const showComingSoon = (feature: string, event: Event) => {
+  // Add shake animation to the clicked button
+  const button = event.currentTarget as HTMLElement;
+  button.classList.add('shake');
+  
+  // Remove the shake class after animation completes
+  setTimeout(() => {
+    button.classList.remove('shake');
+  }, 300);
+
+  toast({
+    title: `${feature} Coming Soon`,
+    description: `We're working hard to bring you ${feature.toLowerCase()}. Stay tuned!`,
+  });
+};
 </script>

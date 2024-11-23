@@ -107,7 +107,7 @@
                     <div class="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
                       <NuxtLink to="/review"> 
                         <div class="flex items-center justify-between">
-                          <span class="text-sm font-medium">Ready for Review</span>
+                          <span class="text-sm font-medium flex items-center">Ready for Review <ArrowUpRight class="h-4 w-4 ml-2" /></span>
                           <Badge>{{ needsReviewCount }}</Badge>
                         </div>
                       </NuxtLink>
@@ -333,8 +333,9 @@ import {
   TrendingDown,
   Zap,
   ArrowUp,
+  ArrowUpRight,
   Check,
-  ArrowRight,
+  ArrowRight
 } from "lucide-vue-next";
 import ArticleDetailModal from "@/components/ArticleDetailModal.vue";
 import { Switch } from "@/components/ui/switch";
