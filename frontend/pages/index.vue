@@ -39,6 +39,102 @@
           </Card>
         </div>
 
+        <!-- Performance Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Content Generation Card -->
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-base font-medium">Content Generation</CardTitle>
+              <CardDescription>Real-time AI assistance metrics</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div class="space-y-4">
+                <!-- Active Generation -->
+                <div class="flex items-center space-x-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                  <div class="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Zap class="h-4 w-4 text-primary" />
+                  </div>
+                  <div class="flex-1 space-y-1">
+                    <p class="text-sm font-medium">Active Generation</p>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-2xl font-bold">3</span>
+                      <span class="text-sm text-muted-foreground">articles in progress</span>
+                    </div>
+                  </div>
+                  <Button variant="outline" size="sm">
+                    View
+                  </Button>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="space-y-2 p-3 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm font-medium">Ready for Review</span>
+                      <Badge>8</Badge>
+                    </div>
+                    <div class="text-xs text-muted-foreground">
+                      Last updated 5m ago
+                    </div>
+                  </div>
+                  <div class="space-y-2 p-3 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm font-medium">Needs Attention</span>
+                      <Badge variant="destructive">2</Badge>
+                    </div>
+                    <div class="text-xs text-muted-foreground">
+                      Requires editor input
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recent Sources -->
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <h4 class="text-sm font-medium">Recent Sources</h4>
+                    <Button variant="ghost" size="sm" class="h-8 text-xs">
+                      View All
+                    </Button>
+                  </div>
+                  <div class="space-y-2">
+                    <div v-for="source in recentSources" :key="source.name" 
+                         class="flex items-center justify-between p-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-md transition-colors">
+                      <div class="flex items-center space-x-2">
+                        <component :is="source.icon" class="h-4 w-4 text-muted-foreground" />
+                        <span class="text-sm">{{ source.name }}</span>
+                      </div>
+                      <Badge variant="secondary" class="text-xs">{{ source.count }}</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <!-- Topic Analysis Card -->
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-base font-medium">Trending Topics</CardTitle>
+              <CardDescription>Most discussed subjects</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div class="space-y-4">
+                <div v-for="topic in trendingTopics" :key="topic.name" class="flex items-center gap-4">
+                  <div class="flex-1 space-y-1">
+                    <p class="text-sm font-medium leading-none">{{ topic.name }}</p>
+                    <p class="text-sm text-muted-foreground">{{ topic.mentions }} mentions</p>
+                  </div>
+                  <div :class="topic.trend === 'up' ? 'text-green-500' : 'text-red-500'" class="flex items-center">
+                    <TrendingUp v-if="topic.trend === 'up'" class="h-4 w-4" />
+                    <TrendingDown v-else class="h-4 w-4" />
+                    <span class="text-sm ml-1">{{ topic.percentage }}%</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         <!-- Recent Articles -->
         <div class="space-y-4">
           <div class="flex justify-between items-center">
@@ -94,8 +190,9 @@ import AppSidebar from '@/components/AppSidebar.vue';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { PlusCircle, PenSquare, Eye } from 'lucide-vue-next';
+import { PlusCircle, PenSquare, Eye, TrendingUp, TrendingDown, Zap } from 'lucide-vue-next';
 
 // Sample data - would come from your store/API
 const articles = [
@@ -141,5 +238,32 @@ const articles = [
     date: "2d ago",
     excerpt: "New research shows promising results for next-generation battery technology...",
   },
+];
+
+const trendingTopics = [
+  {
+    name: "Electric Vehicle Batteries",
+    mentions: 342,
+    trend: "up",
+    percentage: 24
+  },
+  {
+    name: "Charging Infrastructure",
+    mentions: 275,
+    trend: "up",
+    percentage: 18
+  },
+  {
+    name: "Tesla Model Updates",
+    mentions: 198,
+    trend: "down",
+    percentage: 5
+  },
+  {
+    name: "Solid State Technology",
+    mentions: 165,
+    trend: "up",
+    percentage: 12
+  }
 ];
 </script>
