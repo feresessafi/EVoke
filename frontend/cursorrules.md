@@ -52,3 +52,4 @@ the value will be the time saved and the professional quality of the articles.
 the frontend will be a web app that allows you to see, review and publish the articles and get insights
 so like a dashboard basically for the editors and journalists to oversee the process and get insights and speed up the process of the whole news production.
 
+
