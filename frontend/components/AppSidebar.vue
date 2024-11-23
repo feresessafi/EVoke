@@ -57,7 +57,7 @@
         <Button variant="ghost" class="w-full justify-start relative">
           <CheckSquare class="mr-2 h-4 w-4" />
           Review Queue
-          <Badge variant="primary" class="ml-auto">{{ reviewCount }}</Badge>
+          <Badge variant="warning" class="ml-auto">{{ reviewCount }}</Badge>
         </Button>
         <Button variant="ghost" class="w-full justify-start">
           <Archive class="mr-2 h-4 w-4" />

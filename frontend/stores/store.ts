@@ -1,14 +1,16 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
-import mockArticles from '@/scripts/articles_mock.json';
+import articlesData from '@/scripts/articles_mock.json';
 
-// Interfaces
+type ArticleStatus = 'review_needed' | 'published' | 'draft' | 'pending' | 'rejected';
+
+
 interface Article {
   story_title: string;
   article_text: string;
   source_count: number;
   sources: string[];
-  status: "draft" | "published";
+  status: string;
   date: string;
 }
 
@@ -38,12 +40,7 @@ interface Stats {
 // Store
 export const useStore = defineStore("store", () => {
   // State
-  const articles = ref(mockArticles.map(article => ({
-    ...article,
-    status: Math.random() > 0.5 ? "draft" : "published",
-    date: new Date(Date.now() - Math.floor(Math.random() * 10) * 86400000)
-      .toLocaleDateString(),
-  })));
+  const articles = ref<Article[]>(articlesData);
 
   const isLoading = ref(false);
   const error = ref<string | null>(null);
@@ -106,15 +103,35 @@ export const useStore = defineStore("store", () => {
   ]);
 
   // Computed
-  const draftArticles = computed(() => 
-    articles.value.filter(article => article.status === "draft")
+  const reviewNeededArticles = computed(() => 
+    articles.value.filter(article => 
+      article.status === 'Review Needed'
+    )
   );
 
   const publishedArticles = computed(() => 
-    articles.value.filter(article => article.status === "published")
+    articles.value.filter(article => article.status === 'published')
+  );
+
+  const draftArticles = computed(() => 
+    articles.value.filter(article => article.status === 'draft')
   );
 
   // Actions
+  const updateArticleStatus = (articleTitle: string, newStatus: ArticleStatus) => {
+    const article = articles.value.find(a => a.story_title === articleTitle);
+    if (article) {
+      article.status = newStatus;
+      if (newStatus === 'published') {
+        stats.value.publishedToday++;
+        stats.value.readyForReview--;
+      } else if (newStatus === 'draft') {
+        stats.value.needsAttention++;
+        stats.value.readyForReview--;
+      }
+    }
+  };
+
   const updateArticle = (articleTitle: string, updates: Partial<Article>) => {
     const index = articles.value.findIndex(a => a.story_title === articleTitle);
     if (index !== -1) {
@@ -148,7 +165,7 @@ export const useStore = defineStore("store", () => {
   const fetchArticles = () => {
     isLoading.value = true;
     try {
-      articles.value = (mockArticles || []).map(article => ({
+      articles.value = (articlesData || []).map(article => ({
         ...article,
         status: Math.random() > 0.5 ? "draft" : "published",
         date: new Date(Date.now() - Math.floor(Math.random() * 10) * 86400000)
@@ -172,10 +189,12 @@ export const useStore = defineStore("store", () => {
     recentSources,
 
     // Computed
-    draftArticles,
+    reviewNeededArticles,
     publishedArticles,
+    draftArticles,
 
     // Actions
+    updateArticleStatus,
     updateArticle,
     deleteArticle,
     addArticle,

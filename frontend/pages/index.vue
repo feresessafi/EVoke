@@ -195,13 +195,8 @@
                   {{ article.story_title }}
                 </CardTitle>
                 <CardDescription class="flex items-center gap-2 mt-2">
-                  <Badge
-                    :variant="
-                      article.status === 'draft' ? 'secondary' : 'default'
-                    "
-                    class="uppercase text-xs"
-                  >
-                    {{ article.status }}
+                  <Badge :variant="getStatusVariant(article.status)">
+                    {{ formatStatus(article.status) }}
                   </Badge>
                   <span class="text-xs">{{ article.date }}</span>
                 </CardDescription>
@@ -287,6 +282,7 @@ import {
 import ArticleDetailModal from "@/components/ArticleDetailModal.vue";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { getStatusVariant, formatStatus } from '@/utils/status';
 
 // Initialize store
 const store = useStore();
