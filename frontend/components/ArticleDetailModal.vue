@@ -46,7 +46,7 @@
               <div class="space-y-1">
                 <p class="text-sm text-muted-foreground">AI Score</p>
                 <div class="flex items-center justify-between">
-                  <p class="text-lg font-semibold text-primary">92%</p>
+                  <p class="text-lg font-semibold text-primary">{{ Math.floor(Math.random() * 30) + 70 }}%</p>
                   <Sparkles class="h-4 w-4 text-primary" />
                 </div>
               </div>
