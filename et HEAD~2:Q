@@ -1,0 +1,84 @@
+[33mcommit 4a5f6c6f24b0445bc20de4f39bbd8290a446ce35[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: DavidAtanasoski <davidatanasoski05@gmail.com>
+Date:   Sat Nov 23 03:23:03 2024 +0100
+
+    samples2
+
+[33mcommit 3f001dbe11adad555273e1980ccefdc2083b833c[m
+Merge: 9405b76 78c02be
+Author: DavidAtanasoski <davidatanasoski05@gmail.com>
+Date:   Sat Nov 23 03:21:34 2024 +0100
+
+    Merge branch 'main' of github.com:feresessafi/hubert.ai into main
+
+[33mcommit 9405b76a75fd4f0b619671004227c3e0052de44c[m
+Author: DavidAtanasoski <davidatanasoski05@gmail.com>
+Date:   Sat Nov 23 03:20:52 2024 +0100
+
+    samples
+
+[33mcommit 78c02bea2d6c96a978649c3fb4bdcb4e310db89e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 03:20:03 2024 +0100
+
+    prepull commit
+
+[33mcommit 89bb4d8fe49996f07151442137b098ae4cbf85a7[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 02:53:12 2024 +0100
+
+    ui(dashboard): better dashboard ui
+
+[33mcommit 183da48bd4f7110794763314af5e25f32bca38f5[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 02:37:07 2024 +0100
+
+    ui(dashboard): first dashboard ui
+
+[33mcommit b24aa52d4b7fd3a3fa307995373fb1611f6cc5a7[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 02:18:13 2024 +0100
+
+    sidebar and logo refinements
+
+[33mcommit 0f15076929105bf141831844f3b3c445b4dcbfd1[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 02:09:21 2024 +0100
+
+    added sidebar and logo
+
+[33mcommit 412ae1cef2b8b8939b959a0a7a1594dd4f90c3b2[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 01:37:59 2024 +0100
+
+    .
+
+[33mcommit f479083460cebe354286af913e96336afef30cab[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 01:36:41 2024 +0100
+
+    ui: frontend coding starts now
+
+[33mcommit 0e64b58e181964a547b29bc15b6f5f8a6c3e25de[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 01:35:44 2024 +0100
+
+    setup dependencies (shadcn, tailwind) and created cursorrules file for ai to understand project
+
+[33mcommit 50ab8ef5a41feaf6d0734a50cabe18c0723ef028[m
+Author: Feres Essafi <feres.essafi.1@gmail.com>
+Date:   Sat Nov 23 00:37:44 2024 +0100
+
+    create frontend project
+
+[33mcommit 9df8f34b127758608155ff7dcf50e14c7171cb53[m
+Author: Feres Essafi <135252030+feresessafi@users.noreply.github.com>
+Date:   Sat Nov 23 00:28:45 2024 +0100
+
+    Update README.md
+
+[33mcommit 1461ffc3cd7aa6ac733628daaf7a60ca9d68127c[m
+Author: Feres Essafi <135252030+feresessafi@users.noreply.github.com>
+Date:   Sat Nov 23 00:28:20 2024 +0100
+
+    Initial commit

@@ -1,0 +1,20 @@
+
+
+https://rss.app/feeds/MLuDKqkwFtd2tuMr.xml
+https://www.autobild.de/rss/22590661.xml
+https://rss.app/feed/AY3gpY8fWOkfCCWR
+
+
+endpoints:
+https://hackatum-2024.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview
+https://hackatum-2024.openai.azure.com/openai/deployments/text-embedding-ada-002/embeddings?api-version=2023-05-15
+https://hackatum-2024.openai.azure.com/openai/deployments/dall-e-3/images/generations?api-version=2024-02-01
+
+
+
+
+1. Data Collection and preprocessing
+    - Extract (only!) the text from the articles
+    - remove any not necessary information that are not related to the articles
+    - skip articles that we need to pay to read them ...
+    
