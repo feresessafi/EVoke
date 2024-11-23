@@ -31,6 +31,13 @@
         >
           Generation
         </h3>
+        <NuxtLink to="/review">
+          <Button variant="ghost" class="w-full justify-start relative">
+            <ListStart class="mr-2 h-4 w-4" />
+            Review Queue
+            <Badge variant="secondary" class="ml-auto">{{ reviewCount }}</Badge>
+          </Button>
+        </NuxtLink>
         <Button variant="ghost" class="w-full justify-start" @click="(e) => showComingSoon('News Feed', e)">
           <Newspaper class="mr-2 h-4 w-4" />
           News Feed
@@ -51,17 +58,29 @@
         >
           Content
         </h3>
-        <NuxtLink to="/review">
-          <Button variant="ghost" class="w-full justify-start relative">
-            <CheckSquare class="mr-2 h-4 w-4" />
-            Review Queue
-            <Badge variant="secondary" class="ml-auto">{{ reviewCount }}</Badge>
-          </Button>
-        </NuxtLink>
+        
         <NuxtLink to="/published">
           <Button variant="ghost" class="w-full justify-start">
-            <Archive class="mr-2 h-4 w-4" />
+            <CheckCheck class="mr-2 h-4 w-4" />
             Published
+          </Button>
+        </NuxtLink>
+        <NuxtLink to="/videos">
+          <Button variant="ghost" class="w-full justify-start">
+            <Camera class="mr-2 h-4 w-4" />
+            Videos
+          </Button>
+        </NuxtLink>
+        <NuxtLink to="/podcasts">
+          <Button variant="ghost" class="w-full justify-start">
+            <Mic class="mr-2 h-4 w-4" />
+            Podcasts
+          </Button>
+        </NuxtLink>
+        <NuxtLink to="/archive">
+          <Button variant="ghost" class="w-full justify-start">
+            <Archive class="mr-2 h-4 w-4" />
+            Archive
           </Button>
         </NuxtLink>
       </div>
@@ -95,9 +114,14 @@ import {
   CheckSquare,
   Archive,
   Settings,
-  HelpCircle,
+  HelpCircle, 
   Newspaper,
-  PlusCircle,
+  PlusCircle, 
+  BookCheck,
+  ListStart,
+  CheckCheck,
+  Camera, 
+  Mic,
 } from "lucide-vue-next";
 import AppLogo from "./AppLogo.vue";
 import { useToast } from '@/components/ui/toast/use-toast';

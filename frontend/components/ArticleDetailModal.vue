@@ -22,7 +22,12 @@
             class="relative w-full overflow-hidden rounded-lg"
             style="aspect-ratio: 16/9; max-height: 280px"
           >
-            <Skeleton class="absolute inset-0" />
+            <div v-if="article.image">
+              <img :src="article.image" class="w-full h-full object-cover" />
+            </div>
+            <div v-else>
+              <Skeleton class="absolute inset-0" />
+            </div>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
             />

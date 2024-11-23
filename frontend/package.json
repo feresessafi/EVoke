@@ -12,11 +12,13 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@pinia/nuxt": "^0.5.1",
+    "@vueuse/core": "^11.3.0",
     "chart.js": "^4.4.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.460.0",
     "nuxt": "^3.14.1592",
+    "openai": "^4.73.0",
     "pinia": "^2.1.7",
     "radix-vue": "^1.9.10",
     "tailwind-merge": "^2.5.4",

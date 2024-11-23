@@ -38,7 +38,7 @@
             <!-- Quick Stats Row -->
             <div class="grid grid-cols-3 gap-4">
               <!-- Articles in Queue -->
-              <Card>
+              <Card class="shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <CardTitle class="text-sm font-medium">Articles in Queue</CardTitle>
                   <div class="mt-2 flex flex-col">
@@ -52,7 +52,7 @@
               </Card>
 
               <!-- Published Today -->
-              <Card>
+              <Card class="shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <CardTitle class="text-sm font-medium">Published Today</CardTitle>
                   <div class="mt-2 flex flex-col">
@@ -66,7 +66,7 @@
               </Card>
 
               <!-- Trending Topics -->
-              <Card>
+              <Card class="shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <CardTitle class="text-sm font-medium">Trending Topics</CardTitle>
                   <div class="mt-2 flex flex-col">
@@ -81,7 +81,7 @@
             </div>
 
             <!-- Content Generation Card -->
-            <Card>
+            <Card class="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle class="text-base font-medium">Content Generation</CardTitle>
                 <CardDescription>Real-time AI assistance metrics</CardDescription>
@@ -118,7 +118,7 @@
             </Card>
 
             <!-- Publishing Schedule Card -->
-            <Card>
+            <Card class="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle class="text-base font-medium">Publishing Schedule</CardTitle>
                 <CardDescription>Upcoming articles</CardDescription>
@@ -155,7 +155,7 @@
           <div class="space-y-4">
 
             <!-- Content Insights -->
-          <Card class="">
+          <Card class="shadow-md hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle class="text-base font-medium">Content Insights</CardTitle>
             </CardHeader>
@@ -192,7 +192,7 @@
           </Card>
 
             <!-- Trending Topics Card -->
-            <Card>
+            <Card class="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle class="text-base font-medium">Trending Topics</CardTitle>
                 <CardDescription>Most discussed subjects</CardDescription>
@@ -239,7 +239,7 @@
             <Card
               v-for="article in articles"
               :key="article.story_title"
-              class="group hover:shadow-lg transition-all duration-200 cursor-pointer border-zinc-200 dark:border-zinc-800"
+              class="group hover:shadow-lg transition-all duration-200 cursor-pointer border-zinc-200 dark:border-zinc-800 shadow-md"
               @click="handleCardClick(article)"
             >
               <CardHeader>
@@ -265,6 +265,13 @@
               <CardFooter
                 class="flex justify-between border-t dark:border-zinc-800 pt-4"
               >
+              
+                <div v-if="articles.indexOf(article) < 3">
+                  <Flame :stroke-width="3" class="h-4 w-4 text-red-500" />
+                </div>
+                <div v-if="articles.indexOf(article) < 1">
+                <ClockAlert class="h-4 w-4 mr-2 text-blue-500" />
+              </div>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -335,7 +342,9 @@ import {
   ArrowUp,
   ArrowUpRight,
   Check,
-  ArrowRight
+  ArrowRight, 
+  Flame,
+  ClockAlert
 } from "lucide-vue-next";
 import ArticleDetailModal from "@/components/ArticleDetailModal.vue";
 import { Switch } from "@/components/ui/switch";

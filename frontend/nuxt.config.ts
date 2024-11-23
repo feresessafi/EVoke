@@ -9,6 +9,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    // Server-side environment variables
+    AZURE_OPENAI_KEY: process.env.AZURE_OPENAI_KEY,
+    AZURE_OPENAI_ENDPOINT: process.env.AZURE_OPENAI_ENDPOINT,
+  },
 
   css: ['~/assets/css/main.css'],
   modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/color-mode', '@pinia/nuxt'],
