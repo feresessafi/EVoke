@@ -1,4 +1,4 @@
-### Hackatum 2024 - Hubert Burda Media Challenge
+# Hackatum 2024 - Hubert Burda Media Challenge
 
 ## EVoke - the AI-powered news platform
 
