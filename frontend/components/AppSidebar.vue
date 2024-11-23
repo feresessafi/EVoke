@@ -13,10 +13,12 @@
 
       <!-- Main Navigation -->
       <div class="space-y-1">
-        <Button variant="ghost" class="w-full justify-start font-semibold">
-          <LayoutDashboard class="mr-2 h-4 w-4" />
-          Dashboard
-        </Button>
+        <NuxtLink to="/">
+          <Button variant="ghost" class="w-full justify-start font-semibold">
+            <LayoutDashboard class="mr-2 h-4 w-4" />
+            Dashboard
+          </Button>
+        </NuxtLink>
       </div>
 
       <!-- Thin Divider -->
@@ -49,20 +51,19 @@
         >
           Content
         </h3>
-        <Button variant="ghost" class="w-full justify-start relative">
-          <PenSquare class="mr-2 h-4 w-4" />
-          Drafts
-          <Badge variant="secondary" class="ml-auto">{{ draftCount }}</Badge>
-        </Button>
-        <Button variant="ghost" class="w-full justify-start relative">
-          <CheckSquare class="mr-2 h-4 w-4" />
-          Review Queue
-          <Badge variant="warning" class="ml-auto">{{ reviewCount }}</Badge>
-        </Button>
-        <Button variant="ghost" class="w-full justify-start">
-          <Archive class="mr-2 h-4 w-4" />
-          Published
-        </Button>
+        <NuxtLink to="/review">
+          <Button variant="ghost" class="w-full justify-start relative">
+            <CheckSquare class="mr-2 h-4 w-4" />
+            Review Queue
+            <Badge variant="warning" class="ml-auto">{{ reviewCount }}</Badge>
+          </Button>
+        </NuxtLink>
+        <NuxtLink to="/published">
+          <Button variant="ghost" class="w-full justify-start">
+            <Archive class="mr-2 h-4 w-4" />
+            Published
+          </Button>
+        </NuxtLink>
       </div>
 
       <!-- Thin Divider -->
@@ -99,6 +100,9 @@ import {
 import AppLogo from "./AppLogo.vue";
 
 // These would come from your store in real app
-const draftCount = 3;
-const reviewCount = 8;
+
+const store = useStore();
+const { reviewNeededArticles } = storeToRefs(store);
+//const draftCount = 3;
+const reviewCount = reviewNeededArticles.value.length;
 </script>

@@ -16,17 +16,7 @@
             </p>
           </div>
           <div class="flex items-center gap-2">
-            <Select v-model="filterStatus" class="w-[150px]">
-              <SelectTrigger>
-                <SelectValue placeholder="Filter by status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Articles</SelectItem>
-                <SelectItem value="pending">Pending Review</SelectItem>
-                <SelectItem value="approved">Approved</SelectItem>
-                <SelectItem value="rejected">Needs Revision</SelectItem>
-              </SelectContent>
-            </Select>
+        
             <Button variant="outline" class="gap-2">
               <ArrowDownToLine class="h-4 w-4" />
               Export Report

@@ -31,34 +31,55 @@
           </div>
         </div>
 
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card>
-            <CardHeader class="space-y-1">
-              <CardTitle class="text-sm font-medium"
-                >Articles in Queue</CardTitle
-              >
-              <CardDescription class="text-2xl font-bold">12</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader class="space-y-1">
-              <CardTitle class="text-sm font-medium">Published Today</CardTitle>
-              <CardDescription class="text-2xl font-bold">8</CardDescription>
-            </CardHeader>
-          </Card>
-          <Card>
-            <CardHeader class="space-y-1">
-              <CardTitle class="text-sm font-medium">Trending Topics</CardTitle>
-              <CardDescription class="text-2xl font-bold">5</CardDescription>
-            </CardHeader>
-          </Card>
-        </div>
-
-        <!-- Performance Metrics -->
+        <!-- Main Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- Left Column -->
           <div class="space-y-4">
+            <!-- Quick Stats Row -->
+            <div class="grid grid-cols-3 gap-4">
+              <!-- Articles in Queue -->
+              <Card>
+                <CardHeader>
+                  <CardTitle class="text-sm font-medium">Articles in Queue</CardTitle>
+                  <div class="mt-2 flex flex-col">
+                    <div class="text-2xl font-bold">{{ 8 }}</div>
+                    <div class="flex items-center gap-1">
+                      <ArrowUp class="h-3 w-3 text-green-500" />
+                      <span class="text-xs text-muted-foreground">+3 today</span>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <!-- Published Today -->
+              <Card>
+                <CardHeader>
+                  <CardTitle class="text-sm font-medium">Published Today</CardTitle>
+                  <div class="mt-2 flex flex-col">
+                    <div class="text-2xl font-bold text-green-500">{{ 5 }}</div>
+                    <div class="flex items-center gap-1">
+                      <Check class="h-3 w-3 text-green-500" />
+                      <span class="text-xs text-muted-foreground">94% accuracy</span>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <!-- Trending Topics -->
+              <Card>
+                <CardHeader>
+                  <CardTitle class="text-sm font-medium">Trending Topics</CardTitle>
+                  <div class="mt-2 flex flex-col">
+                    <div class="text-2xl font-bold text-blue-500">{{ 3 }}</div>
+                    <div class="flex items-center gap-1">
+                      <TrendingUp class="h-3 w-3 text-blue-500" />
+                      <span class="text-xs text-muted-foreground">Active</span>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </div>
+
             <!-- Content Generation Card -->
             <Card>
               <CardHeader>
@@ -84,16 +105,12 @@
                   <!-- Quick Actions -->
                   <div class="space-y-2">
                     <div class="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
-                      <div class="flex items-center justify-between">
-                        <span class="text-sm font-medium">Ready for Review</span>
-                        <Badge>8</Badge>
-                      </div>
-                    </div>
-                    <div class="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
-                      <div class="flex items-center justify-between">
-                        <span class="text-sm font-medium">Needs Attention</span>
-                        <Badge variant="destructive">2</Badge>
-                      </div>
+                      <NuxtLink to="/review"> 
+                        <div class="flex items-center justify-between">
+                          <span class="text-sm font-medium">Ready for Review</span>
+                          <Badge>{{ needsReviewCount }}</Badge>
+                        </div>
+                      </NuxtLink>
                     </div>
                   </div>
                 </div>
@@ -136,6 +153,43 @@
 
           <!-- Right Column -->
           <div class="space-y-4">
+
+            <!-- Content Insights -->
+          <Card class="">
+            <CardHeader>
+              <CardTitle class="text-base font-medium">Content Insights</CardTitle>
+            </CardHeader>
+            <CardContent class="h-[calc(100%-4rem)]">
+              <div class="grid grid-cols-2 gap-2 mb-4">
+                <div class="p-2 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-muted-foreground">Published</span>
+                    <TrendingUp class="h-3 w-3 text-green-500" />
+                  </div>
+                  <p class="text-sm font-semibold">156</p>
+                  <span class="text-xs text-green-500">+12 this week</span>
+                </div>
+                <div class="p-2 bg-zinc-100 dark:bg-zinc-900 rounded-lg">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-muted-foreground">Avg. Engagement</span>
+                    <Sparkles class="h-3 w-3 text-yellow-500" />
+                  </div>
+                  <p class="text-sm font-semibold">94%</p>
+                  <span class="text-sm text-green-500">+2.1% vs last month</span>
+                </div>
+              </div>
+              
+              <NuxtLink 
+                to="/published"
+                class="block p-2 bg-zinc-100 dark:bg-zinc-900 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors mt-2"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-semibold">View History</span>
+                  <ArrowRight class="h-3 w-3" />
+                </div>
+              </NuxtLink>
+            </CardContent>
+          </Card>
 
             <!-- Trending Topics Card -->
             <Card>
@@ -278,6 +332,9 @@ import {
   TrendingUp,
   TrendingDown,
   Zap,
+  ArrowUp,
+  Check,
+  ArrowRight,
 } from "lucide-vue-next";
 import ArticleDetailModal from "@/components/ArticleDetailModal.vue";
 import { Switch } from "@/components/ui/switch";
@@ -289,6 +346,13 @@ const store = useStore();
 const { articles, isLoading, error, trendingTopics, recentSources } =
   storeToRefs(store);
 
+const needsAttentionCount = computed(() => {
+  return store.articles.filter(article => article.status === 'draft').length;
+});
+
+const needsReviewCount = computed(() => {
+  return store.articles.filter(article => article.status === 'Review Needed').length;
+});
 // State variables for modal
 const showArticleModal = ref(false);
 const selectedArticle = ref(null);

@@ -56,12 +56,6 @@ export const useStore = defineStore("store", () => {
 
   const trendingTopics = ref<TrendingTopic[]>([
     {
-      name: "Electric Vehicle Batteries",
-      mentions: 342,
-      trend: "up",
-      percentage: 24,
-    },
-    {
       name: "Charging Infrastructure",
       mentions: 245,
       trend: "up",
