@@ -4,7 +4,7 @@
   >
     <div class="p-4 space-y-6">
       <!-- Logo -->
-      <div class="flex items-center space-x-3 pb-2">
+      <div class="flex items-center space-x-3 pb-2 pt-4">
         <AppLogo />
       </div>
 
@@ -13,7 +13,7 @@
 
       <!-- Main Navigation -->
       <div class="space-y-1">
-        <Button variant="ghost" class="w-full justify-start">
+        <Button variant="ghost" class="w-full justify-start font-semibold">
           <LayoutDashboard class="mr-2 h-4 w-4" />
           Dashboard
         </Button>

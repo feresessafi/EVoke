@@ -1,0 +1,51 @@
+[
+  {
+    "story_title": "Tesla's New Battery Technology Promises 500-Mile Range",
+      "article_text": "In a groundbreaking development, Tesla has announced a new battery technology that could revolutionize electric vehicle range capabilities. The new cell design, developed in partnership with leading battery researchers, promises to deliver up to 500 miles of range on a single charge while reducing production costs. This advancement represents a significant leap forward in addressing one of the primary concerns among potential EV adopters - range anxiety. The technology combines novel electrode materials with an innovative cell structure, resulting in higher energy density and improved thermal management. Industry experts suggest this development could accelerate the widespread adoption of electric vehicles, particularly in long-distance transportation applications.",
+      "source_count": 3,
+      "sources": [
+        "https://www.reuters.com/tesla-battery-technology",
+        "https://www.bloomberg.com/tesla-innovation",
+        "https://www.teslaofficial.com/press-release"
+      ]
+    },
+    {
+      "story_title": "BMW Announces All-Electric SUV Lineup for 2025",
+      "article_text": "BMW has made a bold commitment to electrification, announcing that its entire SUV range will be available in all-electric versions by 2025. This strategic shift includes popular models like the X3, X5, and X7, with the company investing heavily in retooling its manufacturing facilities to accommodate the new electric platforms. The move is part of BMW's broader strategy to compete with Tesla and other automakers in the premium electric vehicle segment. The new electric SUVs will feature next-generation battery technology, offering ranges competitive with their combustion counterparts while maintaining BMW's signature driving dynamics.",
+      "source_count": 2,
+      "sources": [
+        "https://www.automotivenews.com/bmw-electric-future",
+        "https://www.bmwblog.com/2024-lineup"
+      ]
+    },
+    {
+      "story_title": "Solar-Powered Charging Stations: The Future of EV Infrastructure",
+      "article_text": "A revolutionary network of solar-powered charging stations is set to transform Germany's electric vehicle infrastructure. The initiative, backed by major energy providers and automotive manufacturers, will deploy self-sustaining charging hubs across the country. Each station will combine solar panels with battery storage systems, reducing grid dependency and ensuring consistent charging capability even during peak demand. The project aims to address two critical challenges in EV adoption: charging infrastructure availability and sustainable energy sourcing. Initial pilot locations have shown promising results, with some stations achieving complete energy independence during summer months.",
+      "source_count": 4,
+      "sources": [
+        "https://www.energyweek.de/solar-charging",
+        "https://www.cleanenergy.org/germany-initiative",
+        "https://www.evcharging.com/solar-revolution",
+        "https://www.sustainablemobility.eu/case-studies"
+      ]
+    },
+    {
+      "story_title": "Volkswagen ID.4 Sets New Range Record",
+      "article_text": "The Volkswagen ID.4 has established a new benchmark for electric vehicle efficiency, achieving an unprecedented range in real-world testing conditions. The latest model, equipped with an updated battery management system and aerodynamic improvements, exceeded its rated range by over 15% during independent testing. This achievement demonstrates the rapid advancement of EV technology and Volkswagen's commitment to pushing the boundaries of electric mobility. The tests, conducted across various driving conditions and temperatures, provide valuable insights into the practical capabilities of modern electric vehicles.",
+      "source_count": 2,
+      "sources": [
+        "https://www.vw-newsroom.com/range-test",
+        "https://www.evtesting.org/id4-analysis"
+      ]
+    },
+    {
+      "story_title": "The Rise of Electric Motorcycles in Urban Mobility",
+      "article_text": "Electric motorcycles are emerging as a key solution for urban transportation challenges, offering a compelling blend of sustainability, convenience, and performance. Recent market analysis shows a surge in adoption across major European cities, with sales growing by 300% year-over-year. Manufacturers are responding with new models that feature improved range, faster charging capabilities, and innovative safety features. The trend is particularly strong among young urban professionals seeking efficient and environmentally conscious transportation options.",
+      "source_count": 3,
+      "sources": [
+        "https://www.urbanmobility.eu/trends",
+        "https://www.twowheeler.com/electric-future",
+        "https://www.citytransport.org/studies"
+      ]
+    }
+]
